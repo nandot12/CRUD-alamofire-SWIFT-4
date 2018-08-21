@@ -97,25 +97,61 @@ class MenuTableViewController: UITableViewController {
     }
  
 
-    /*
+  
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+ 
 
-    /*
+  
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
+            //get id
+            let id = data[indexPath.row]["menu_id"]
+            actionDelete(id: id!)
+            
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+           // tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let story = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let update = story.instantiateViewController(withIdentifier: "update") as? UpdateViewController
+        //passing data ke updateviewcontroller
+        let datas = data[indexPath.row]
+        update?.nameTampung = datas["menu_nama"]
+        update?.priceTampung = datas["menu_harga"]
+        update?.idTampung = datas["menu_id"]
+        update?.stockTampung = datas["menu_stok"]
+        
+        //pindah
+        show(update!, sender: self)
+        
+    }
+    
+    func actionDelete(id : String){
+        let url = "http://192.168.20.133/server_resto/index.php/api/hapusMakanan/" + id
+
+        Alamofire.request(url).responseJSON { (responseJson) in
+            
+            let json = JSON(responseJson.result.value as Any)
+            let sukses = json["sukses"].boolValue
+            if sukses {
+                self.ambilData()
+            }
+            else{
+            
+                print("delete fail")
+            }
+        }
+    }
+  
 
     /*
     // Override to support rearranging the table view.

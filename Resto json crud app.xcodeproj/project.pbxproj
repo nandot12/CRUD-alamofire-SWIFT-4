@@ -15,6 +15,7 @@
 		2D09B340212BC81A00415AD2 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D09B33F212BC81A00415AD2 /* MenuTableViewController.swift */; };
 		2D09B343212BEAE200415AD2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D09B342212BEAE200415AD2 /* Config.swift */; };
 		2D09B345212BF1BE00415AD2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D09B344212BF1BE00415AD2 /* TableViewCell.swift */; };
+		2D09B347212C110000415AD2 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D09B346212C110000415AD2 /* UpdateViewController.swift */; };
 		4B61D37AFF17687F05F72E92 /* Pods_Resto_json_crud_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4EBFC38ABFF4571146756B /* Pods_Resto_json_crud_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		2D09B33F212BC81A00415AD2 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		2D09B342212BEAE200415AD2 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2D09B344212BF1BE00415AD2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2D09B346212C110000415AD2 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		A40DFCB41380294EB28B52E1 /* Pods-Resto json crud app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resto json crud app.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resto json crud app/Pods-Resto json crud app.release.xcconfig"; sourceTree = "<group>"; };
 		DB4701FBC0B8A4013B315F71 /* Pods-Resto json crud app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resto json crud app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resto json crud app/Pods-Resto json crud app.debug.xcconfig"; sourceTree = "<group>"; };
 		EA4EBFC38ABFF4571146756B /* Pods_Resto_json_crud_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resto_json_crud_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				2D09B339212BC38B00415AD2 /* Info.plist */,
 				2D09B33F212BC81A00415AD2 /* MenuTableViewController.swift */,
 				2D09B344212BF1BE00415AD2 /* TableViewCell.swift */,
+				2D09B346212C110000415AD2 /* UpdateViewController.swift */,
 			);
 			path = "Resto json crud app";
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				2D09B343212BEAE200415AD2 /* Config.swift in Sources */,
 				2D09B32E212BC37E00415AD2 /* AppDelegate.swift in Sources */,
 				2D09B340212BC81A00415AD2 /* MenuTableViewController.swift in Sources */,
+				2D09B347212C110000415AD2 /* UpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
