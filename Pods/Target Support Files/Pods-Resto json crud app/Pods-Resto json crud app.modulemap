@@ -1,0 +1,6 @@
+framework module Pods_Resto_json_crud_app {
+  umbrella header "Pods-Resto json crud app-umbrella.h"
+
+  export *
+  module * { export * }
+}
