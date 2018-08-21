@@ -7,17 +7,47 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import AlamofireImage
 
 class MenuTableViewController: UITableViewController {
 
+    var data = [[String : String]]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func ambilData(){
+        
+        //ambil data
+        Alamofire.request("http://192.168.20.133/server_resto/index.php/api/ambilMakanan").responseJSON { (responseData) in
+            
+            //get response
+            let alljson = JSON(responseData.result.value as Any)
+            
+            let sukses = alljson["sukses"].boolValue
+            
+            if sukses {
+                
+                self.data = alljson["data"].arrayObject as! [[String : String]]
+                //load table view
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        ambilData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +59,43 @@ class MenuTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return data.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell
 
-        // Configure the cell...
-
-        return cell
+        
+        let datas = data[indexPath.row]
+        
+        cell?.cellHarga.text = datas["menu_harga"]
+        cell?.cellName.text = datas["menu_nama"]
+        
+        //load image using alamofire image
+        Alamofire.request("http://192.168.20.133/picture/" + datas["menu_gambar"]!)
+            .responseImage { (dataImage) in
+                
+                
+                //ambil gambar
+                let gambar = dataImage.data
+                
+                cell?.cellImg.image = UIImage(data: gambar!)
+                
+                
+        }
+        
+        
+        
+        
+        return cell!
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
